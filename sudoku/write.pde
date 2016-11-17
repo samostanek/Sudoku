@@ -1,3 +1,13 @@
+int[][] previous = {  {0, 0, 0, 0, 0, 0, 0, 0, 0}, 
+                     {0, 0, 0, 0, 0, 0, 0, 0, 0}, 
+                     {0, 0, 0, 0, 0, 0, 0, 0, 0}, 
+                     {0, 0, 0, 0, 0, 0, 0, 0, 0}, 
+                     {0, 0, 0, 0, 0, 0, 0, 0, 0}, 
+                     {0, 0, 0, 0, 0, 0, 0, 0, 0}, 
+                     {0, 0, 0, 0, 0, 0, 0, 0, 0}, 
+                     {0, 0, 0, 0, 0, 0, 0, 0, 0}, 
+                     {0, 0, 0, 0, 0, 0, 0, 0, 0}    };
+
 void write(boolean first) {
   if (first) textSize(32);
   
@@ -8,7 +18,12 @@ void write(boolean first) {
     by += 43 * (ax + 1);
     for (int ay = 0; ay <= 8; ay++) {
       bx += 43;
-      if (numbers[ax][ay] != 0) text(numbers[ax][ay], bx, by);
+      if (first) previous[ax][ay] = numbers[ax][ay];
+      if (numbers[ax][ay] != 0) {
+        if (previous[ax][ay] == 0 && first == false) fill(color(255, 0, 0));
+        text(numbers[ax][ay], bx, by);
+        fill(color(0, 0, 0));
+      }
     }
   }
 }
