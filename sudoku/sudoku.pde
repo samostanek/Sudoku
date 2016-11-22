@@ -1,3 +1,4 @@
+import g4p_controls.*;
 PImage sudoku_overlay;
 BufferedReader reader;
 String line;
@@ -21,8 +22,10 @@ int[] canBe = new int[0];
 
 void setup()
 {
-  size(800, 800);
-  bsetup();     
+  size(800, 800, JAVA2D);
+  bsetup();    
+  createGUI();
+  customGUI();
 }
 
 void draw()
@@ -31,6 +34,9 @@ void draw()
 
 void mousePressed()
 {
-  algorA();
-  write(false);
+  //algorA();
+  //write(false);
+}
+
+public void customGUI(){
 }

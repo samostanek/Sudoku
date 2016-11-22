@@ -5,4 +5,6 @@ void bsetup()
   image(sudoku_overlay, width / 2 - 135, height / 2 - 135, width / 2, height / 2);
   write(true);
   noStroke();
+  
+  
 }
