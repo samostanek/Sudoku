@@ -1,4 +1,5 @@
 import g4p_controls.*;
+import java.util.HashSet;
 PImage sudoku_overlay;
 BufferedReader reader;
 String line;
@@ -34,9 +35,19 @@ void draw()
 
 void mousePressed()
 {
-  //algorA();
-  //write(false);
+  algorB();
+  write(false);
 }
 
-public void customGUI(){
+public void customGUI(){}
+
+int findDupes(int[] a, int[] b) {
+    HashSet<Integer> map = new HashSet<Integer>();
+    int c = 0;
+    for (int i : a)
+        map.add(i);
+    for (int i : b) {
+        if (map.contains(i)) c = i;
+    }
+    return c;
 }
