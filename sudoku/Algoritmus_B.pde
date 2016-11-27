@@ -1,3 +1,5 @@
+int d_1, d_2;
+
 void algorB() {
 //*****************RIADKY*****************//
   int tr = 0;
@@ -12,7 +14,7 @@ void algorB() {
         print(" ");
         print(stlpec(shBe, i));
         print(" ");
-        println(stvorec(shBe, tr, i));     //Tie posledne dva argumeny su jedno co tam je
+        println(stvorec(shBe, tr, i));
         //if (riadok(shBe, tr) == false) break;
         //if (stlpec(shBe, i) == false) neni += 1; 
       }
@@ -46,15 +48,18 @@ boolean stvorec(int i_0, int posx,int posy) {
   int aa[] = {0, 0, 0};
   int ab[] = {0, 0, 0};
   boolean v = false;
-  if (posx == 1||posx == 2||posx == 3) {int p[] = {1, 2, 3}; arrayCopy(p, aa); };
-  if (posx == 4||posx == 5||posx == 6) {int p[] = {4, 5, 6}; arrayCopy(p, aa); };
-  if (posx == 7||posx == 8||posx == 9) {int p[] = {7, 8, 9}; arrayCopy(p, aa); };
-  if (posy == 1||posy == 2||posy == 3) {int p[] = {1, 4, 7}; arrayCopy(p, ab); };
-  if (posy == 4||posy == 5||posy == 6) {int p[] = {2, 5, 8}; arrayCopy(p, ab); };
-  if (posy == 7||posy == 8||posy == 9) {int p[] = {3, 6, 9}; arrayCopy(p, ab); };
+  if (posx == 0||posx == 1||posx == 2) {int p[] = {0, 1, 2}; arrayCopy(p, aa); };
+  if (posx == 3||posx == 4||posx == 5) {int p[] = {3, 4, 5}; arrayCopy(p, aa); };
+  if (posx == 6||posx == 7||posx == 8) {int p[] = {6, 7, 8}; arrayCopy(p, aa); };
+  if (posy == 0||posy == 1||posy == 2) {int p[] = {0, 3, 6}; arrayCopy(p, ab); };
+  if (posy == 3||posy == 4||posy == 5) {int p[] = {1, 4, 7}; arrayCopy(p, ab); };
+  if (posy == 6||posy == 7||posy == 8) {int p[] = {2, 5, 8}; arrayCopy(p, ab); };
   int stvorec = findDupes(aa, ab);
+  print(stvorec);
   
-  for (int i = 0; i <= 8; i++) { //Ak je v tom stlpci i0 tak vrati TRUE inac vrati FALSE
+  for (int i = 0; i <= 8; i++) { //Ak je v tom stlpci i0 tak vrati TRUE inac vrati FALSE //<>//
+  d_1 = Integer.parseInt( String.valueOf(velke_stvorce[stvorec][i] + 11).substring(0,1)) - 1;
+  d_2 = Integer.parseInt( String.valueOf(velke_stvorce[stvorec][i] + 11).substring(1,2)) - 1;
     if (numbers[Integer.parseInt( String.valueOf(velke_stvorce[stvorec][i] + 11).substring(0,1)) - 1][Integer.parseInt( String.valueOf(velke_stvorce[stvorec][i] + 11).substring(1,2)) - 1] == i_0) {
       v = true;
       break;
