@@ -15,10 +15,11 @@ void algorB() {
         print(stlpec(shBe, i));
         print(" ");
         println(stvorec(shBe, tr, i));
-        //if (riadok(shBe, tr) == false) break;
-        //if (stlpec(shBe, i) == false) neni += 1; 
+        
+        if (stlpec(shBe, i) == false && stvorec(shBe, tr, i) == false) neni += 1; xs = tr; ys = i;
       }
     }
+    if (neni == 1) numbers[xs][ys] = shBe;
   }
 }
 

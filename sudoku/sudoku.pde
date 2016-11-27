@@ -35,8 +35,8 @@ void draw()
 
 void mousePressed()
 {
-  algorB();
-  write(false);
+  //algorB();
+  //write(false);
 }
 
 public void customGUI(){}
