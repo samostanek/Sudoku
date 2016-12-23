@@ -1,30 +1,56 @@
 int d_1, d_2;
 
 void algorB() {
-//*****************RIADKY*****************//
-  for (int tr = 0; 8 > tr; tr++) {
+////*****************RIADKY*****************//
+//  for (int tr = 0; 8 > tr; tr++) {
+//    int neni, xs, ys;
+//    int p0[] = {0};
+//    for (int shBe = 1; shBe <= 9; shBe++) {      //1
+//    neni = 0; xs = 0; ys = 0;
+//      for (int i = 0; i <= 8; i++) {             //2
+//        if (numbers[tr][i] == 0) {
+//          print(shBe);
+//          print(" ");
+//          print(riadok(shBe, tr));
+//          print(" ");
+//          print(stlpec(shBe, i));
+//          print(" ");
+//          println(stvorec(shBe, tr, i));
+//          if (riadok(shBe, tr)) break;
+//          if (stlpec(shBe, i) == false && stvorec(shBe, tr, i) == false) {
+//            neni += 1;
+//            xs = tr;
+//            ys = i;
+//          }
+//        }
+//      }
+//      if (neni == 1) numbers[xs][ys] = shBe;
+//    }
+//  }
+//*****************STLPCE*****************//
+  for (int ts = 0; 8 > ts; ts++) {
     int neni, xs, ys;
     int p0[] = {0};
     for (int shBe = 1; shBe <= 9; shBe++) {      //1
     neni = 0; xs = 0; ys = 0;
       for (int i = 0; i <= 8; i++) {             //2
-        if (numbers[tr][i] == 0) {
+        if (numbers[i][ts] == 0) {
           print(shBe);
           print(" ");
-          print(riadok(shBe, tr));
+          print(riadok(shBe, ts));
           print(" ");
           print(stlpec(shBe, i));
           print(" ");
-          println(stvorec(shBe, tr, i));
-          if (riadok(shBe, tr)) break;
-          if (stlpec(shBe, i) == false && stvorec(shBe, tr, i) == false) {
-            neni += 1;
-            xs = tr;
-            ys = i;
-          }
+          println(stvorec(shBe, ts, i));
+          //if (riadok(shBe, ts)) break;
+          //if (stlpec(shBe, i) == false && stvorec(shBe, ts, i) == false) {
+          //  neni += 1;
+          //  xs = ts;
+          //  ys = i;
+          //}
         }
       }
-      if (neni == 1) numbers[xs][ys] = shBe;
+      //if (neni == 1) numbers[xs][ys] = shBe;
     }
   }
 }
