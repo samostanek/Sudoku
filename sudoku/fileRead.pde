@@ -1,4 +1,5 @@
 String line;
+int counter; 
 
 void readFile() throws Exception {
   end = false;
@@ -11,7 +12,7 @@ void readFile() throws Exception {
     } 
     catch (IOException e) {
       e.printStackTrace();
-      line = null;
+      line = null; 
     }
     
     if (line == null) {
@@ -19,13 +20,13 @@ void readFile() throws Exception {
       if (counter >= 9) throw new Exception("File has wrong format !");
     } else {
       //println(line);
-      for (int i = 0; i <= 8; i++){ 
+      for (int i = 0; i <= 8; i++) { 
         //println(int(line.substring(i, i + 1)));
         numbers[counter][i] = int(line.substring(i, i + 1));
-        println(numbers[counter][i]);
+        print(numbers[counter][i]);
       }
-    }  
-          
+    }
+    counter++;
   }
-  //return(numbers);
+  
 }

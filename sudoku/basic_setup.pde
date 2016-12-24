@@ -8,9 +8,5 @@ void bsetup()
   } catch (Exception e) {
     e.printStackTrace();
   }
-  
   write(true);
-  noStroke();
-  
-  
 }
