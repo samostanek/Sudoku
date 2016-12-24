@@ -1,9 +1,11 @@
-void readFile() throws Exception
-{
+String line;
+
+void readFile() throws Exception {
   end = false;
   reader = createReader("data/input.txt");
   counter = 0;
   while (!end) {
+    
     try {
       line = reader.readLine();
     } 
@@ -11,15 +13,19 @@ void readFile() throws Exception
       e.printStackTrace();
       line = null;
     }
+    
     if (line == null) {
       end = true;
-      if (counter >= 9) {
-      } else throw new Exception("File has wrong format !");
+      if (counter >= 9) throw new Exception("File has wrong format !");
     } else {
-      for (int i = 0; i <= 8; i++) {
-        //   numbers[i][counter] = 0;                                    // NEFUNGUJE
+      //println(line);
+      for (int i = 0; i <= 8; i++){ 
+        //println(int(line.substring(i, i + 1)));
+        numbers[counter][i] = int(line.substring(i, i + 1));
+        println(numbers[counter][i]);
       }
-    }
-    counter++;
+    }  
+          
   }
+  //return(numbers);
 }
