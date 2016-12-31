@@ -10,3 +10,7 @@ void bsetup()
   }
   write(true);
 }
+
+public void customGUI(){}
+
+void draw() {}

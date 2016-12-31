@@ -1,5 +1,7 @@
 String line;
-int counter; 
+int counter;
+BufferedReader reader;
+Boolean end;
 
 void readFile() throws Exception {
   end = false;
@@ -17,7 +19,7 @@ void readFile() throws Exception {
     
     if (line == null) {
       end = true;
-      if (counter >= 9) throw new Exception("File has wrong format !");
+      if (counter > 9) throw new Exception("File has wrong format !");
     } else {
       //println(line);
       for (int i = 0; i <= 8; i++) { 
