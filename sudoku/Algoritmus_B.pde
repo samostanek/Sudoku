@@ -70,7 +70,6 @@ boolean stlpec(int i0, int s) {
 }
 
 boolean stvorec(int i_0, int posx,int posy) {
-  int d_1, d_2;
   int aa[] = {0, 0, 0};
   int ab[] = {0, 0, 0};
   boolean v = false;
@@ -78,22 +77,24 @@ boolean stvorec(int i_0, int posx,int posy) {
   if (posx == 0||posx == 1||posx == 2) {int p[] = {0, 1, 2}; arrayCopy(p, aa); };    ////
   if (posx == 3||posx == 4||posx == 5) {int p[] = {3, 4, 5}; arrayCopy(p, aa); };      ////
   if (posx == 6||posx == 7||posx == 8) {int p[] = {6, 7, 8}; arrayCopy(p, aa); };        ////
-  if (posy == 0||posy == 1||posy == 2) {int p[] = {0, 3, 6}; arrayCopy(p, ab); };          //// Zistí v ktorom štvorci z tých veľkých sa nachádzame
+  if (posy == 0||posy == 1||posy == 2) {int p[] = {0, 3, 6}; arrayCopy(p, ab); };          //// Zistí v ktorom štvorci z tých veľkých sa nachádza posx a posy
   if (posy == 3||posy == 4||posy == 5) {int p[] = {1, 4, 7}; arrayCopy(p, ab); };        ////
   if (posy == 6||posy == 7||posy == 8) {int p[] = {2, 5, 8}; arrayCopy(p, ab); };      ////
   int stvorec = findDupes(aa, ab);                                                   ////
-  print(posx);
-  print(posy);
-  //printArray(aa);
-  //printArray(ab);
-  //print(stvorec);
+  //******Potialto funguje*******//
   
-  for (int i = 0; i <= 8; i++) { //Ak je v tom stvorci i0 tak vrati TRUE inac vrati FALSE
-  d_1 = Integer.parseInt( String.valueOf(velke_stvorce[stvorec][i] + 11).substring(0,1)) - 1;
-  d_2 = Integer.parseInt( String.valueOf(velke_stvorce[stvorec][i] + 11).substring(1,2)) - 1;
-    if (numbers[Integer.parseInt( String.valueOf(velke_stvorce[stvorec][i] + 11).substring(0,1)) - 1][Integer.parseInt( String.valueOf(velke_stvorce[stvorec][i] + 11).substring(1,2)) - 1] == i_0) {
-      v = true;
-      break;
+  for (int i = 0; i <= 8; i++) {             // Ak je v tom stvorci i0 tak vrati TRUE inac vrati FALSE
+    if (stvorec == 2 && i == 2) {
+      if (numbers[0][8] == i_0) {
+        v = true;
+        break;
+      }
+    } else {
+      print(numbers[Integer.parseInt( String.valueOf(velke_stvorce[stvorec][i] + 11).substring(0,1)) - 1][Integer.parseInt( String.valueOf(velke_stvorce[stvorec][i] + 11).substring(1,2)) - 1]);
+      if (numbers[Integer.parseInt( String.valueOf(velke_stvorce[stvorec][i] + 11).substring(0,1)) - 1][Integer.parseInt( String.valueOf(velke_stvorce[stvorec][i] + 11).substring(1,2)) - 1] == i_0) {
+        v = true;
+        break;
+     }
     }
   }
   return v;

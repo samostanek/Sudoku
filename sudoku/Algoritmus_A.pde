@@ -59,16 +59,26 @@ void algorA() {
   for (int ts = 0; ts <= 8; ts++) {        // Cyklus pre vsetky štvorce
      a = 0;
      c = 0;
+     pos[0] = pos[1] = 0;
     for (int i = 0; i <= 8; i++) {         // Prebehnutie členov štvorca
-      if (numbers[Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(0,1)) - 1][Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(1,2)) - 1] == 0) {           // Ak je policko prazdne
-        a += 1;                            // Toto robim preto lebo ak na konci my zostane č. 1 tak som vlastne zistil ze v tom stlpci je iba 1 volny stvorcek
-        pos[0] = Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(0,1)) - 1;           // Zápis pozície pre prípad že to bude jediný volný stvorcek, ja viem, ak to nebude jediní volný stvorcek tak sa to otom jedno ? :D
-        pos[1] = Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(1,2)) - 1;// Zápis pozície pre prípad že to bude jediný volný stvorcek (pokračovanie), ja viem, ak to nebude jediní volný stvorcek tak sa to prepíše, ale neni to uz potom jedno ? :D
+      if (ts == 2 && i == 2) {             // Ak je policko prazdne
+        if (numbers[0][8] == 0) {
+          a += 1;                          // Ak my na konci zostane a = 1 tak budem vedet ze v tom stlpci je iba 1 volny stvorcek
+          pos[0] = 0;                      // Zápis pozície x pre prípad že to bude jediný volný stvorcek
+          pos[1] = 8;                      // Zápis pozície y pre prípad že to bude jediný volný stvorcek
+      } else {
+          if (numbers[Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(0,1)) - 1][Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(1,2)) - 1] == 0) {           
+            a += 1;                                                                                             // Ak my na konci zostane a = 1 tak budem vedet ze v tom stlpci je iba 1 volny stvorcek
+            pos[0] = Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(0,1)) - 1;           // Zápis pozície x pre prípad že to bude jediný volný stvorcek
+            pos[1] = Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(1,2)) - 1;           // Zápis pozície y pre prípad že to bude jediný volný stvorcek
+          }
+        }
       }
+      print(a);
     }
     if (a == 1) {
-      for (int i = 0; i <= 8; i++) {
-        c += numbers[Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(0,1)) - 1][Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(1,2)) - 1];   //čísel v tom stĺpci ktorý práve rieši
+      for (int i = 0; i <= 8; i++) {    //c = sucet cisel v stlpci ktorý prave riesi
+        if (ts == 2 && i == 2) c += numbers[0][8]; else c += numbers[Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(0,1)) - 1][Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(1,2)) - 1];
       }
       numbers[pos[0]][pos[1]] = 45 - c; // Vloženie riešenia do správneho štvorčeka
       print("ŠTVOREC");
