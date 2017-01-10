@@ -66,6 +66,7 @@ void algorA() {
           a += 1;                          // Ak my na konci zostane a = 1 tak budem vedet ze v tom stlpci je iba 1 volny stvorcek
           pos[0] = 0;                      // Zápis pozície x pre prípad že to bude jediný volný stvorcek
           pos[1] = 8;                      // Zápis pozície y pre prípad že to bude jediný volný stvorcek
+        } 
       } else {
           if (numbers[Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(0,1)) - 1][Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(1,2)) - 1] == 0) {           
             a += 1;                                                                                             // Ak my na konci zostane a = 1 tak budem vedet ze v tom stlpci je iba 1 volny stvorcek
@@ -73,9 +74,9 @@ void algorA() {
             pos[1] = Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(1,2)) - 1;           // Zápis pozície y pre prípad že to bude jediný volný stvorcek
           }
         }
-      }
       print(a);
     }
+    print("; ");
     if (a == 1) {
       for (int i = 0; i <= 8; i++) {    //c = sucet cisel v stlpci ktorý prave riesi
         if (ts == 2 && i == 2) c += numbers[0][8]; else c += numbers[Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(0,1)) - 1][Integer.parseInt( String.valueOf(velke_stvorce[ts][i] + 11).substring(1,2)) - 1];
@@ -86,6 +87,8 @@ void algorA() {
       print(pos[0]);
       print(" ");
       print(pos[1]);
+      print(" ");
+      print(c);
       print(" ");
       println(45 - c);
     }
