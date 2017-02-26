@@ -19,32 +19,25 @@ void algorB() {
       if (neni == 1) numbers[xs][ys] = shBe;
     }
   }
-////*****************STLPCE*****************//
-//  //for (int ts = 0; 8 > ts; ts++) {
-//    int ts = 0;
-//    int neni, xs, ys;
-//    for (int shBe = 1; shBe <= 9; shBe++) {      //1
-//    neni = 0; xs = 0; ys = 0;
-//      for (int i = 0; i <= 8; i++) {             //2
-//        if (numbers[i][ts] == 0) {
-//          print(shBe);
-//          print(" ");
-//          print(riadok(shBe, i));
-//          print(" ");
-//          print(stlpec(shBe, ts));
-//          print(" ");
-//          println(stvorec(shBe, ts, i));
-//          //if (riadok(shBe, ts)) break;
-//          //if (stlpec(shBe, i) == false && stvorec(shBe, ts, i) == false) {
-//          //  neni += 1;
-//          //  xs = ts;
-//          //  ys = i;
-//          //}
-//        }
-//      }
-//      //if (neni == 1) numbers[xs][ys] = shBe;
-//    }
-//  }
+  
+//*****************STLPCE*****************//
+  for (int ts = 0; 8 > ts; ts++) {
+    int neni, xs, ys;
+    for (int shBe = 1; shBe <= 9; shBe++) {      //1
+    neni = 0; xs = 0; ys = 0;
+      for (int i = 0; i <= 8; i++) {             //2
+        if (numbers[i][ts] == 0) {
+          if (stlpec(shBe, ts)) break;
+          if (riadok(shBe, i) == false && stvorec(shBe, i, ts) == false) {
+            neni += 1;
+            xs = i;
+            ys = ts;
+          }
+        }
+      }
+      if (neni == 1) numbers[xs][ys] = shBe;
+    }
+  }
 }
 
 boolean riadok(int i0,int r) {
