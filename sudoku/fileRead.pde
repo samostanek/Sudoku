@@ -5,7 +5,7 @@ Boolean end;
 
 void readFile() throws Exception {
   end = false;
-  reader = createReader("data/ex_tasks/input_diff_30.txt");
+  reader = createReader("data/task.txt");
   counter = 0;
   while (!end) {
     
